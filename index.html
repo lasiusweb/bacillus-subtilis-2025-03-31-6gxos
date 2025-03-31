@@ -3,50 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bacillus subtilis - Premium Soil Enhancement</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .hover-scale { transition: transform 0.3s ease-in-out; }
+        .hover-scale:hover { transform: scale(1.02); }
+        .feature-card { transition: all 0.3s ease-in-out; }
+        .feature-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card { transition: all 0.3s ease-in-out; }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #059669;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased smooth-scroll">
     <!-- Announcement Bar -->
     <div class="bg-gray-900 text-white py-2 text-center text-sm">
         <p>Fast Worldwide Shipping (5 days delivery) 🌍</p>
     </div>
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-md" x-data="{ isOpen: false }">
+    <header class="sticky top-0 z-50 bg-white shadow-md">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <a href="/" class="text-2xl font-bold">ProbioticFy</a>
+                    <a href="https://lasiusweb.github.io/bacillus-subtilis-2025-03-31-6gxos" class="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors duration-300">ProbioticFy</a>
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Features</a>
-                    <a href="#benefits" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Benefits</a>
-                    <a href="#faq" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">FAQ</a>
-                    <button class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transform hover:scale-105 transition-all duration-200">
+                    <a href="#features" class="nav-link text-gray-600 hover:text-green-600 transition-colors duration-300">Features</a>
+                    <a href="#benefits" class="nav-link text-gray-600 hover:text-green-600 transition-colors duration-300">Benefits</a>
+                    <a href="#testimonials" class="nav-link text-gray-600 hover:text-green-600 transition-colors duration-300">Testimonials</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-green-600 transition-colors duration-300">About Us</a>
+                    <a href="#faq" class="nav-link text-gray-600 hover:text-green-600 transition-colors duration-300">FAQ</a>
+                    <button class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
                         Buy Now
                     </button>
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button @click="isOpen = !isOpen" class="text-gray-600 hover:text-gray-900 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                </div>
+                <button class="mobile-menu-button md:hidden text-gray-600 hover:text-gray-900 focus:outline-none" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
 
             <!-- Mobile Navigation -->
-            <div x-show="isOpen" class="md:hidden">
+            <div class="mobile-menu hidden md:hidden bg-white border-t border-gray-100">
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="#features" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Features</a>
-                    <a href="#benefits" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Benefits</a>
-                    <a href="#faq" class="block px-3 py-2 text-gray-600 hover:text-gray-900">FAQ</a>
+                    <a href="#features" class="block px-3 py-2 text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-300">Features</a>
+                    <a href="#benefits" class="block px-3 py-2 text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-300">Benefits</a>
+                    <a href="#testimonials" class="block px-3 py-2 text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-300">Testimonials</a>
+                    <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-300">About Us</a>
+                    <a href="#faq" class="block px-3 py-2 text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-300">FAQ</a>
                 </div>
             </div>
         </nav>
@@ -63,9 +106,9 @@
         
         <div class="relative container mx-auto px-4 h-full flex items-center">
             <div class="max-w-4xl mx-auto text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Bacillus subtilis</h1>
-                <p class="text-xl md:text-2xl mb-8">Supercharge soil & protect crops with Bacillus subtilis!</p>
-                <button class="bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transform hover:scale-105 transition-all duration-200">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Bacillus subtilis</h1>
+                <p class="text-xl md:text-2xl mb-8">Supercharge soil & protect crops with nature's most powerful probiotic!</p>
+                <button class="bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                     Discover More
                 </button>
             </div>
@@ -76,27 +119,33 @@
     <section id="features" class="py-24 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Key Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex items-start">
-                        <svg class="w-12 h-12 text-green-600 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                        <i class="fas fa-shield-virus text-4xl text-green-600 mr-4"></i>
                         <div>
-                            <h3 class="text-xl font-semibold mb-3">Fights Fungal/Bacterial Diseases</h3>
-                            <p class="text-gray-600">Powerful natural protection against common crop diseases.</p>
+                            <h3 class="text-xl font-semibold mb-3">Disease Protection</h3>
+                            <p class="text-gray-600">Natural defense against harmful pathogens and crop diseases.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex items-start">
-                        <svg class="w-12 h-12 text-green-600 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
+                        <i class="fas fa-seedling text-4xl text-green-600 mr-4"></i>
                         <div>
-                            <h3 class="text-xl font-semibold mb-3">Enhances Drought & Stress Resistance</h3>
-                            <p class="text-gray-600">Improves plant resilience in challenging conditions.</p>
+                            <h3 class="text-xl font-semibold mb-3">Growth Promotion</h3>
+                            <p class="text-gray-600">Enhances nutrient uptake and promotes robust plant growth.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-tint-slash text-4xl text-green-600 mr-4"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3">Drought Resistance</h3>
+                            <p class="text-gray-600">Improves plant resilience during water stress conditions.</p>
                         </div>
                     </div>
                 </div>
@@ -111,16 +160,16 @@
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="order-2 md:order-1">
-                        <h3 class="text-3xl font-bold mb-6">Disease Fighter for Healthier Crops</h3>
-                        <p class="text-gray-600 mb-6">Natural protection that keeps your crops thriving and disease-free.</p>
-                        <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors duration-200">
+                        <h3 class="text-3xl font-bold mb-6">Advanced Disease Protection</h3>
+                        <p class="text-gray-600 mb-6">Our Bacillus subtilis strain creates a protective shield around plant roots, actively fighting off harmful pathogens and preventing common crop diseases. This natural defense system helps maintain crop health throughout the growing season, reducing the need for chemical fungicides.</p>
+                        <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
                             Learn More
                         </button>
                     </div>
                     <div class="order-1 md:order-2">
                         <img src="https://images.unsplash.com/photo-1556740714-a8395b3bf30f?w=800&h=600&fit=crop&q=80" 
                              alt="Healthy crops" 
-                             class="rounded-lg shadow-xl w-full">
+                             class="rounded-lg shadow-xl w-full hover-scale">
                     </div>
                 </div>
             </div>
@@ -133,12 +182,12 @@
                     <div>
                         <img src="https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=800&h=600&fit=crop&q=80" 
                              alt="Drought resistant plants" 
-                             class="rounded-lg shadow-xl w-full">
+                             class="rounded-lg shadow-xl w-full hover-scale">
                     </div>
                     <div>
-                        <h3 class="text-3xl font-bold mb-6">Drought-Resistant Plant Protection</h3>
-                        <p class="text-gray-600 mb-6">Enhanced resilience against water stress and harsh conditions.</p>
-                        <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors duration-200">
+                        <h3 class="text-3xl font-bold mb-6">Superior Drought Resistance</h3>
+                        <p class="text-gray-600 mb-6">Experience unprecedented drought tolerance with our specialized Bacillus subtilis formulation. Plants treated with our solution develop enhanced root systems and improved water utilization, ensuring survival and productivity even during extended dry periods.</p>
+                        <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
                             Discover More
                         </button>
                     </div>
@@ -151,17 +200,92 @@
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="order-2 md:order-1">
-                        <h3 class="text-3xl font-bold mb-6">Enhanced Soil Health</h3>
-                        <p class="text-gray-600 mb-6">Improves soil structure and nutrient availability for optimal growth.</p>
-                        <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-colors duration-200">
+                        <h3 class="text-3xl font-bold mb-6">Optimized Soil Health</h3>
+                        <p class="text-gray-600 mb-6">Transform your soil's ecosystem with our advanced probiotic solution. Bacillus subtilis works to improve soil structure, enhance nutrient availability, and create an optimal environment for root development. This results in stronger, healthier plants and increased yields naturally.</p>
+                        <button class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
                             Find Out More
                         </button>
                     </div>
                     <div class="order-1 md:order-2">
                         <img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=800&h=600&fit=crop&q=80" 
                              alt="Healthy soil" 
-                             class="rounded-lg shadow-xl w-full">
+                             class="rounded-lg shadow-xl w-full hover-scale">
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About Us</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-gray-600 mb-8">
+                    Founded in 2020, ProbioticFy emerged from a passionate team of agricultural scientists and sustainable farming advocates. Our journey began with a simple mission: to revolutionize crop protection using nature's own solutions. Through years of research and development, we perfected our Bacillus subtilis formulation to address the growing challenges faced by modern agriculture.
+                </p>
+                <p class="text-gray-600">
+                    Today, we remain committed to our core values of sustainability, innovation, and environmental stewardship. Our mission is to provide farmers worldwide with effective, natural solutions that enhance crop yields while preserving soil health for future generations. We believe in the power of beneficial microorganisms to transform agriculture and create a more sustainable future for all.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Reduced disease pressure by 70% in my tomato crops. Incredible results in just one season!"</p>
+                    <p class="font-semibold">John Martinez</p>
+                    <p class="text-sm text-gray-500">Organic Farmer, California</p>
+                </div>
+
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Our wheat fields showed remarkable drought resistance. Yield increased by 25% despite the dry season."</p>
+                    <p class="font-semibold">Sarah Thompson</p>
+                    <p class="text-sm text-gray-500">Commercial Grower, Kansas</p>
+                </div>
+
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Soil health improved significantly. Better water retention and nutrient availability."</p>
+                    <p class="font-semibold">Michael Chen</p>
+                    <p class="text-sm text-gray-500">Vineyard Owner, Oregon</p>
+                </div>
+
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Best investment for our greenhouse operation. Plants are healthier and more resilient."</p>
+                    <p class="font-semibold">Emma Rodriguez</p>
+                    <p class="text-sm text-gray-500">Greenhouse Manager, Florida</p>
                 </div>
             </div>
         </div>
@@ -182,17 +306,57 @@
                         </div>
                     </button>
                     <div x-show="open" class="px-6 pb-4">
-                        <p class="text-gray-600">Bacillus subtilis works by colonizing plant root systems and promoting healthy growth while fighting off harmful pathogens.</p>
+                        <p class="text-gray-600">Bacillus subtilis creates a protective biofilm around plant roots, producing natural antibiotics and enzymes that fight pathogens while promoting nutrient uptake and plant growth.</p>
                     </div>
                 </div>
-                
-                <!-- Additional FAQ items would go here -->
+
+                <div class="bg-white rounded-lg shadow-md" x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full px-6 py-4 text-left focus:outline-none">
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-semibold">How often should I apply the product?</span>
+                            <svg class="w-6 h-6 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div x-show="open" class="px-6 pb-4">
+                        <p class="text-gray-600">We recommend monthly applications during the growing season, with additional treatments during high-stress periods or disease pressure.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md" x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full px-6 py-4 text-left focus:outline-none">
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-semibold">Is it safe for organic farming?</span>
+                            <svg class="w-6 h-6 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div x-show="open" class="px-6 pb-4">
+                        <p class="text-gray-600">Yes, our product is certified for organic farming and contains no synthetic chemicals or GMOs.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md" x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full px-6 py-4 text-left focus:outline-none">
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-semibold">What crops can benefit from this product?</span>
+                            <svg class="w-6 h-6 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div x-show="open" class="px-6 pb-4">
+                        <p class="text-gray-600">Our product is effective for a wide range of crops including vegetables, fruits, grains, and ornamental plants.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 bg-green-600 relative">
+    <section class="py-24 bg-green-600 relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
             <img src="https://images.unsplash.com/photo-1504093376055-b3094b674dcb?w=1600&h=900&fit=crop&q=80" 
                  alt="Background crops" 
@@ -200,8 +364,8 @@
         </div>
         <div class="relative container mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Ready to Transform Your Crops?</h2>
-            <p class="text-xl text-white mb-8">Start protecting your investment today with Bacillus subtilis</p>
-            <button class="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200">
+            <p class="text-xl text-white mb-8">Join thousands of satisfied farmers who have already improved their yields with Bacillus subtilis</p>
+            <button class="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                 Get Started Now
             </button>
         </div>
@@ -214,25 +378,46 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">ProbioticFy</h3>
                     <p class="text-gray-400">Enhancing crop health naturally</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors duration-200">Features</a></li>
-                        <li><a href="#benefits" class="text-gray-400 hover:text-white transition-colors duration-200">Benefits</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors duration-200">FAQ</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors duration-300">Features</a></li>
+                        <li><a href="#benefits" class="text-gray-400 hover:text-white transition-colors duration-300">Benefits</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors duration-300">Testimonials</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <p class="text-gray-400">contact@probioticfy.com</p>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: contact@probioticfy.com</li>
+                        <li class="text-gray-400">Phone: (555) 123-4567</li>
+                        <li class="text-gray-400">Address: 123 Agri Lane, Farmville, CA 90210</li>
+                    </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Policies</h4>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Shipping Policy</a></li>
+                        <li><a href="https://lasiusweb.github.io/bacillus-subtilis-2025-03-31-6gxos/privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                        <li><a href="https://lasiusweb.github.io/bacillus-subtilis-2025-03-31-6gxos/terms.html" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a></li>
+                        <li><a href="https://lasiusweb.github.io/bacillus-subtilis-2025-03-31-6gxos/blog.html" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Shipping Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -241,5 +426,36 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
+            const mobileMenu = document.querySelector('header nav .mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
 </body>
 </html>
